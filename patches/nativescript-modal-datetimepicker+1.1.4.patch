@@ -1,0 +1,31 @@
+patch-package
+--- a/node_modules/nativescript-modal-datetimepicker/modal-datetimepicker.ios.js
++++ b/node_modules/nativescript-modal-datetimepicker/modal-datetimepicker.ios.js
+@@ -179,7 +179,9 @@ var ModalDatetimepicker = (function () {
+             titleLabel.textAlignment = 1;
+             titleLabel.frame = CGRectMake(0, 20, containerBounds.size.width, containerBounds.size.height - 360);
+             titleLabel.transform = CGAffineTransformMakeScale(0.8, 0.8);
+-            titleLabel.adjustsFontForContentSizeCategory = true;
++           if (titleLabel.respondsToSelector("adjustsFontForContentSizeCategory")) {
++			titleLabel.adjustsFontForContentSizeCategory = true;
++			}
+             titleLabel.adjustsFontSizeToFitWidth = true;
+             titleLabel.layer.masksToBounds = false;
+             titleLabel.alpha = 0;
+--- a/node_modules/nativescript-modal-datetimepicker/platforms/android/include.gradle
++++ b/node_modules/nativescript-modal-datetimepicker/platforms/android/include.gradle
+@@ -1,11 +1,7 @@
+ /* Include.gradle configuration: http://docs.nativescript.org/plugins/plugins#includegradle-specification */
+ 
+ android {
+-	productFlavors {
+-		"nativescript-modal-datetimepicker" {
+-			dimension "nativescript-modal-datetimepicker"
+-		}
+-	}
++	
+ }
+ 
+ dependencies {
+new file mode 100644
+Binary files /dev/null and b/node_modules/nativescript-modal-datetimepicker/platforms/android/nativescript_modal_datetimepicker.aar differ
