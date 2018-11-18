@@ -6,6 +6,7 @@ import { NativeScriptUIChartModule } from "nativescript-ui-chart/angular";
 
 import { AppRoutingModule } from "~/app-routing.module";
 import { AppComponent } from "~/app.component";
+import { HomeComponent } from "./core/views/home/home.component";
 
 
 //import { SentryModule } from 'nativescript-sentry/angular';
@@ -22,7 +23,8 @@ import { AppComponent } from "~/app.component";
       //  SentryModule.forRoot({dsn: 'https://d5a1c1a5b7514036bd033ea158245419@sentry.io/1268432'})
     ],
     declarations: [
-        AppComponent   
+        AppComponent,
+        HomeComponent   
     ],
     schemas: [
         NO_ERRORS_SCHEMA
